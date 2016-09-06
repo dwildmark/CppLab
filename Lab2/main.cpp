@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <string.h>
+#include <stdlib.h>
 
 void task1(int n);
 void task2();
@@ -82,7 +83,9 @@ void task2() {
 }
 
 void task3() {
-    Substitute3("bbbabbbabbbabbb", 'a', "REP");
+    const char* output = Substitute3("bbbabbbabbbabbb", 'a', "REP");
+    std::cout << output << std::endl;
+    delete output;
 }
 
 void Substitute2(std::string& iostring,
@@ -103,7 +106,7 @@ char* Substitute3(char* const input, const char before, char* const after) {
         }
     }
     int newlength = strlen(input) + (indexc * (strlen(after) - 1)) + 1;
-    char output[newlength];
+    char *output = (char *) malloc(newlength);
     int lastindex = 0;
     int inptindex = 0;
     for(int i = 0; i < indexc; i++) {
@@ -125,7 +128,5 @@ char* Substitute3(char* const input, const char before, char* const after) {
         }
     }
     output[newlength - 1] = '\0';
-    std::cout << "Input: " << input << std::endl;
-    std::cout << "Replace " << before << " with " << after << std::endl;
-    std::cout << output << std::endl;
+    return output;
 }
