@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <string.h>
 
 void task1(int n);
 void task2();
@@ -81,7 +82,7 @@ void task2() {
 }
 
 void task3() {
-
+    Substitute3("bbbabbbabbbabbb", 'a', "REP");
 }
 
 void Substitute2(std::string& iostring,
@@ -93,5 +94,38 @@ void Substitute2(std::string& iostring,
 }
 
 char* Substitute3(char* const input, const char before, char* const after) {
-
+    int indexes[strlen(input)];
+    int indexc = 0;
+    for(int i = 0; i < strlen(input); i++) {
+        if(input[i] == before) {
+            indexes[indexc] = i;
+            indexc++;
+        }
+    }
+    int newlength = strlen(input) + (indexc * (strlen(after) - 1)) + 1;
+    char output[newlength];
+    int lastindex = 0;
+    int inptindex = 0;
+    for(int i = 0; i < indexc; i++) {
+        int replaceindex = indexes[i] + (i * (strlen(after) - 1));
+        for(int j = lastindex; j < replaceindex; j++) {
+            output[j] = input[inptindex];
+            inptindex++;
+        }
+        for(int j = 0 ; j < strlen(after); j++) {
+            output[j + replaceindex] = after[j];
+        }
+        lastindex = replaceindex + strlen(after);
+        inptindex++;
+    }
+    if(lastindex < newlength - 1){
+        for(int j = lastindex; j < newlength - 1; j++) {
+            output[j] = input[inptindex];
+            inptindex++;
+        }
+    }
+    output[newlength - 1] = '\0';
+    std::cout << "Input: " << input << std::endl;
+    std::cout << "Replace " << before << " with " << after << std::endl;
+    std::cout << output << std::endl;
 }
