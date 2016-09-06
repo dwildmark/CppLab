@@ -12,6 +12,10 @@ void Substitute2(std::string& iostring,
 char* Substitute3(char* const input,
                   const char before,
                   char* const after);
+void Substitute4(std::istream& input,
+                 std::ostream& output,
+                 const std::string& before,
+                 const std::string& after);
 
 
 int main() {
@@ -33,6 +37,7 @@ int main() {
             break;
         case 4:
             std::cout << "Starting task 4." << std::endl;
+            Substitute4(std::cin, std::cout, "lol", "kek");
             break;
     }
 
@@ -129,4 +134,21 @@ char* Substitute3(char* const input, const char before, char* const after) {
     }
     output[newlength - 1] = '\0';
     return output;
+}
+
+void Substitute4(std::istream& input,
+                 std::ostream& output,
+                 const std::string& before,
+                 const std::string& after) {
+    std::string in;
+    while(input >> in) {
+        int index = (int)in.find(before);
+        std::string res;
+        if(index < in.length()) {
+            res = in.substr(0, index) + after + in.substr(index + before.length());
+        } else {
+            res = in;
+        }
+        output << res << std::endl;
+    }
 }
