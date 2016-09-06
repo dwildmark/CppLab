@@ -43,10 +43,13 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="481">
+              <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#327#910#0" expanded="false" />
+                <element signature="e#912#1845#0" expanded="false" />
+                <element signature="e#1847#1970#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -113,12 +116,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1473162376467</updated>
-      <workItem from="1473162377781" duration="3105000" />
+      <workItem from="1473162377781" duration="4890000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3105000" />
+    <option name="totallyTimeSpent" value="4890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -178,10 +181,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="481">
+          <caret line="95" column="0" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#327#910#0" expanded="false" />
+            <element signature="e#912#1845#0" expanded="false" />
+            <element signature="e#1847#1970#0" expanded="false" />
           </folding>
         </state>
       </provider>
