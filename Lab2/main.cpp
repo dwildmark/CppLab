@@ -1,7 +1,5 @@
 #include <iostream>
 #include <cmath>
-#include <string.h>
-#include <stdlib.h>
 
 void task1(int n);
 void task2();
@@ -41,6 +39,12 @@ int main() {
             break;
     }
 
+    //test
+    char *p = (char *) malloc(1);
+    *p = 'a';
+    char c = *p;
+
+    delete[] p;
     return 0;
 }
 
@@ -82,23 +86,24 @@ void task1(int n) {
 }
 
 void task2() {
-    std::string input = "Hejjj";
-    Substitute2(input, "ej", "eje");
+    std::string input = "123abc123abc";
+    Substitute2(input, "a", "LOL");
     std::cout << input << std::endl;
 }
 
 void task3() {
     const char* output = Substitute3("bbbabbbabbbabbb", 'a', "REP");
     std::cout << output << std::endl;
-    delete output;
+    delete[] output;
 }
 
 void Substitute2(std::string& iostring,
                  const std::string& before,
                  const std::string& after) {
-    int index = (int)iostring.find(before);
-    std::string res = iostring.substr(0, index) + after + iostring.substr(index + before.length());
-    iostring = res;
+    size_t index;
+    while((index = (int)iostring.find(before))!= std::string::npos) {
+        iostring.replace(index, before.length(), after);
+    }
 }
 
 char* Substitute3(char* const input, const char before, char* const after) {
@@ -111,7 +116,7 @@ char* Substitute3(char* const input, const char before, char* const after) {
         }
     }
     int newlength = strlen(input) + (indexc * (strlen(after) - 1)) + 1;
-    char *output = (char *) malloc(newlength);
+    char *output = new char[newlength];
     int lastindex = 0;
     int inptindex = 0;
     for(int i = 0; i < indexc; i++) {
