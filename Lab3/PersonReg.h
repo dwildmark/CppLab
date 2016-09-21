@@ -16,7 +16,8 @@ public:
     PersonReg(int maxSize);
     int addPerson(Person *p_person);
     void removePerson(Person *p_person);
-    Person *findPerson(std::string name);
+    Person* findPerson(std::string name);
+    Person* find(string search, Person* person);
     void print();
     ~PersonReg();
 };

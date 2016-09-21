@@ -13,9 +13,9 @@ public:
     Person();
     string name;
     string adress;
-    void print();
+    virtual void print();
+    bool compare(Person* person);
 };
-
 
 
 #endif //LAB3_PERSON_H

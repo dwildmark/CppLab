@@ -13,6 +13,7 @@ PersonReg::PersonReg(int maxSize): maxSize(maxSize) {
 int PersonReg::addPerson(Person *p_person) {
     if(size < maxSize) {
         persons[size] = *p_person;
+        delete p_person;
         size++;
         return 0;
     }
@@ -31,7 +32,7 @@ void PersonReg::removePerson(Person *p_person) {
     }
 }
 
-Person *PersonReg::findPerson(std::string name) {
+Person* PersonReg::findPerson(std::string name) {
     for(int i = 0; i < size; i++) {
         if(!persons[i].name.compare(name)) {
             return &(persons[i]);
@@ -40,10 +41,31 @@ Person *PersonReg::findPerson(std::string name) {
     return nullptr;
 }
 
+Person* PersonReg::find(string search, Person* person) {
+    int index = 0;
+    if(person != nullptr) {
+        for(int i = 0; i < size; i++) {
+            if(persons[i].compare(person)) {
+                index = i;
+            }
+        }
+    }
+    for(int i = index + 1; i < size; i++) {
+        if(persons[i].name.find(search) != std::string::npos
+           || persons[i].adress.find(search) != std::string::npos ){
+            return &persons[i];
+        }
+    }
+    return nullptr;
+}
+
 void PersonReg::print() {
+    std::cout << "--------REGISTER--------" << std::endl;
     for(int i = 0; i < size; i++) {
         persons[i].print();
     }
+    std::cout << "----------END----------" << std::endl;
+
 }
 
 PersonReg::~PersonReg() {

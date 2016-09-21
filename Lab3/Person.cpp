@@ -15,5 +15,14 @@ Person::Person() {
 }
 
 void Person::print() {
-    std::cout << "Name: " << name << " Adress: " << adress << std::endl;
+    if(!(name.empty()) && !(adress).empty()) {
+        std::cout << "Name: " << name << " Adress: " << adress << std::endl;
+    }
+}
+
+bool Person::compare(Person* person) {
+    if(!(name.empty()) && !(adress).empty()) {
+        return (!(this->name.compare(person->name)) && !(this->adress.compare(person->adress)));
+    }
+    return false;
 }
