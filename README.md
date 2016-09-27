@@ -5,4 +5,4 @@
 
 [Laboration 3 - Objects and memory management](/Lab3)
 
-[Laboration 4 - Algorithms and containers](/Lab4Remake)
+[Laboration 4 - Algorithms and containers](/Lab4)
