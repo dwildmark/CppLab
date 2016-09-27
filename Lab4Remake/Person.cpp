@@ -30,7 +30,7 @@ bool Person::compare(Person* person) {
     return false;
 }
 
-bool Person::operator<(const Person& that) {
+bool Person::operator<(const Person& that) const{
 #if COMPARE_BY_NAME
     return this->name < that.name;
 #else

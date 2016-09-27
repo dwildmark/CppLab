@@ -16,7 +16,7 @@ public:
     string adress;
     virtual void print();
     bool compare(Person* person);
-    bool operator<(const Person& that);
+    bool operator<(const Person& that) const;
 };
 
 

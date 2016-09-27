@@ -1,7 +1,8 @@
+#include <algorithm>
 #include <iostream>
 #include <vector>
 #include <numeric>
-#include <algorithm>
+#include <iostream>
 #include "PersonReg.h"
 
 
