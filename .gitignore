@@ -27,3 +27,6 @@
 *.exe
 *.out
 *.app
+
+# Mac generated shit
+**/.DS_Store
