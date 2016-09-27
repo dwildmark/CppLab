@@ -2,8 +2,8 @@
 // Created by Dennis Wildmark on 2016-09-14.
 //
 
-#ifndef LAB3_PERSONREG_H
-#define LAB3_PERSONREG_H
+#ifndef LAB4REMAKE_PERSONREG_H
+#define LAB4REMAKE_PERSONREG_H
 #include "Person.h"
 #include <string>
 

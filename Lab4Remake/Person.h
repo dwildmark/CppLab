@@ -2,9 +2,10 @@
 // Created by Dennis Wildmark on 2016-09-14.
 //
 
-#ifndef LAB3_PERSON_H
-#define LAB3_PERSON_H
+#ifndef LAB4REMAKE_PERSON_H
+#define LAB4REMAKE_PERSON_H
 #include <string>
+
 using std::string;
 
 class Person {

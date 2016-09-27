@@ -2,9 +2,8 @@
 #include <vector>
 #include <numeric>
 #include <algorithm>
-#include <cstdlib>
 #include "PersonReg.h"
-#include "Person.h"
+
 
 void task1a();
 void task1b();
@@ -12,6 +11,7 @@ void task1c();
 void task1d();
 bool Greater(int a, int b);
 void task2a();
+void task3();
 
 int main() {
     std::cout << "Choose task: " << std::endl;
@@ -33,6 +33,9 @@ int main() {
             break;
         case 5:
             task2a();
+            break;
+        case 6:
+            task3();
             break;
         default:
             break;
@@ -117,8 +120,28 @@ void task2a() {
     p.addPerson( new Person("John", "Vetifan"));
     std::random_shuffle(p.begin(), p.end());
     p.print();
-    //std::sort(p.begin(), p.end());
+    std::sort(p.begin(), p.end());
     p.print();
+}
+
+void task3() {
+    std::vector<int> v(20);
+    iota(v.begin(), v.end(), 0);
+    std::random_shuffle(v.begin(), v.end());
+    std::cout << "--------LIST BEFORE--------" << std::endl;
+    for(auto x : v) {
+        std::cout << "[" << x << "]";
+    }
+    std::cout << std::endl;
+    std::cout << "---------------------------" << std::endl;
+    auto newend = std::remove_if(v.begin(), v.end(), [](int i) { return i%2; });
+    v.erase(newend, v.end());
+    std::cout << "--------LIST AFTER--------" << std::endl;
+    for(auto x : v) {
+        std::cout << "[" << x << "]";
+    }
+    std::cout << std::endl;
+    std::cout << "---------------------------" << std::endl;
 }
 
 bool Greater(int a, int b) {

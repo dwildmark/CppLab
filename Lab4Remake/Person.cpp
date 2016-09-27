@@ -6,6 +6,8 @@
 #include <iostream>
 using std::string;
 
+#define COMPARE_BY_NAME 1
+
 Person::Person(const std::string name, const std::string adress) {
     this->name = name;
     this->adress = adress;
@@ -29,5 +31,9 @@ bool Person::compare(Person* person) {
 }
 
 bool Person::operator<(const Person& that) {
+#if COMPARE_BY_NAME
     return this->name < that.name;
+#else
+    return this->adress > that.adress;
+#endif
 }
