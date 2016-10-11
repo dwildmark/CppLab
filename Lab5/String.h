@@ -6,7 +6,13 @@
 #define LAB5_STRING_H
 
 
+#include <iosfwd>
+
 class String {
+private:
+    char* array;
+    int capacity;
+    int size;
 public:
     String(const String& rhs);
     String(const char* cstr);
@@ -18,9 +24,9 @@ public:
     int capacity() const;
     void push_back(char c);
     friend bool operator == (const String& lhs, const String& rhs);
-    operator << ()
-
+    const char* InternalRep() const;
 };
 
+void operator << (std::ostream& out, const String& rhs);
 
 #endif //LAB5_STRING_H

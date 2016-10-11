@@ -73,7 +73,7 @@ void TestFörGodkäntString() {
     TestPushBackReallocation();
 
     cout << String("hej\n");
-    cout << "Om det st�r hej p� f�reg�ende rad s� �r TestF�rGodk�nt klar\n";
+    cout << "Om det står hej på föregående rad så är TestFörGodkänt klar\n";
 
 }
 
