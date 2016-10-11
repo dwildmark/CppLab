@@ -2,19 +2,25 @@
 // Created by Dennis Wildmark on 2016-10-07.
 //
 
+#include <cstring>
 #include "String.h"
 
 String::String(const String &rhs) {
-    capacity = rhs.size() + 20;
-    size = rhs.size();
-    array = new char [capacity];
-    for(int i = 0; i < size; i++) {
-        array[i] = rhs[i];
+    mSize = rhs.size();
+    mCapacity = mSize + 20;
+    mArray = new char[mCapacity];
+    for(int i = 0; i < mSize; i++) {
+        mArray[i] = rhs[i];
     }
 }
 
 String::String(const char* cstr) {
-
+    mSize = (int)strlen(cstr);
+    mCapacity = mSize + 20;
+    mArray = new char[mCapacity];
+    for(int i = 0; i < mSize; i++) {
+        mArray[i] = cstr[i];
+    }
 }
 
 String& String::operator=(const String &rhs) {
@@ -23,35 +29,35 @@ String& String::operator=(const String &rhs) {
 }
 
 char& String::operator[](int i) {
-    return array[i];
+    return mArray[i];
 }
 
 const char& String::operator[](int i) const {
-    return array[i];
+    return mArray[i];
 }
 
 int String::size() const {
-    return size;
+    return mSize;
 }
 
 int String::capacity() const {
-    return capacity;
+    return mCapacity;
 }
 
 void String::push_back(char c) {
-    if(capacity > size) {
-        array[size] = c;
-        size++;
+    if(mCapacity > mSize) {
+        mArray[mSize] = c;
+        mSize++;
     } else {
-        char* temp = new char[capacity + 1];
-        for(int i = 0; i < capacity; i++) {
-            temp[i] = array[i];
+        char* temp = new char[mCapacity + 1];
+        for(int i = 0; i < mCapacity; i++) {
+            temp[i] = mArray[i];
         }
-        temp[capacity] = c;
-        delete array;
-        array = temp;
-        capacity++;
-        size++;
+        temp[mCapacity] = c;
+        delete[] mArray;
+        mArray = temp;
+        mCapacity++;
+        mSize++;
     }
 }
 
@@ -61,4 +67,39 @@ void operator<<(std::ostream &out, const String &rhs) {
 
 const char *String::InternalRep() const {
     return nullptr;
+}
+
+bool operator==(const String &lhs, const String &rhs) {
+    if(lhs.size() == rhs.size()) {
+        for(int i = 0; i < lhs.size(); i++) {
+            if(lhs[i] != rhs[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
+}
+
+bool operator==(const String &lhs, const char* rhs) {
+    if(lhs.size() == strlen(rhs)) {
+        for(int i = 0; i < lhs.size(); i++) {
+            if(lhs[i] != rhs[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    return true;
+}
+
+String::String() {
+    mArray = {};
+    mCapacity = 0;
+    mSize = 0;
+}
+
+String::~String() {
+    delete[] mArray;
 }

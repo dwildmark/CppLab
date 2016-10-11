@@ -8,6 +8,9 @@
 
 using namespace std;
 
+int myOwnTest();
+bool tM(bool test);
+
 void TestPushBackReallocation() {
     String str("hej");
     auto internalBuf = str.InternalRep();
@@ -27,7 +30,7 @@ void TestPushBackReallocation() {
     assert(i == str.size());
 }
 
-void TestFörGodkäntString() {
+void TestForGodkantString() {
     //-	String()
     String str0;	assert(str0 == "");
 
@@ -77,7 +80,7 @@ void TestFörGodkäntString() {
 
 }
 
-void TestFörVälGodkäntString() {
+void TestForValGodkantString() {
 #ifdef VG
     String str("bar");
 
@@ -157,10 +160,36 @@ void TestFörVälGodkäntString() {
 #endif //VG
 }
 
+#define FULL_TEST 1
 int main() {
-    locale::global(locale("swedish"));
+//    locale::global(locale("swedish"));
     //TestUnsigned();
-    TestFörGodkäntString();
-    TestFörGodkäntString();
+#if FULL_TEST
+    TestForGodkantString();
+    TestForGodkantString();
     cin.get();
+#else
+    myOwnTest();
+#endif
+}
+
+int myOwnTest() {
+    String str = String("Hej");
+    String str2 = String("Hej");
+    bool test1 = str == str2;
+    tM(test1);
+    String str3 = str2;
+    bool test2 = str3 == "Hej";
+    tM(test2);
+    str3.push_back('e');
+    bool test3 = str3 == "Heje";
+    tM(test3);
+}
+
+bool tM(bool test) {
+    if(test) {
+        cout << "Japp" << endl;
+    } else{
+        cout << "Nope" << endl;
+    }
 }

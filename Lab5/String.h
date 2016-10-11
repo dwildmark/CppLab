@@ -10,10 +10,12 @@
 
 class String {
 private:
-    char* array;
-    int capacity;
-    int size;
+    char* mArray;
+    int mCapacity;
+    int mSize;
 public:
+    ~String();
+    String();
     String(const String& rhs);
     String(const char* cstr);
 
