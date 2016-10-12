@@ -2,7 +2,6 @@
 // Created by Dennis Wildmark on 2016-10-07.
 //
 
-#include <cstring>
 #include "String.h"
 
 String::String(const String &rhs) {
@@ -70,12 +69,8 @@ void String::push_back(char c) {
     }
 }
 
-void operator<<(std::ostream &out, const String &rhs) {
-
-}
-
 const char* String::InternalRep() const {
-    return nullptr;
+    return mArray;
 }
 
 bool operator==(const String &lhs, const String &rhs) {
@@ -90,7 +85,7 @@ bool operator==(const String &lhs, const String &rhs) {
     return false;
 }
 
-bool operator==(const String &lhs, const char* rhs) {
+/*bool operator==(const String &lhs, const char* rhs) {
     if(lhs.size() == strlen(rhs)) {
         for(int i = 0; i < lhs.size(); i++) {
             if(lhs[i] != rhs[i]) {
@@ -101,7 +96,7 @@ bool operator==(const String &lhs, const char* rhs) {
     }
 
     return true;
-}
+}*/
 
 String::String() {
     mArray = {};
@@ -111,4 +106,10 @@ String::String() {
 
 String::~String() {
     delete[] mArray;
+}
+
+std::ostream& operator<< (std::ostream& out, const String& rhs) {
+    for (int i=0; i<rhs.size();++i)
+        out << rhs[i];
+    return out;
 }

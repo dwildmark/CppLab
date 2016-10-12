@@ -7,6 +7,8 @@
 
 
 #include <iosfwd>
+#include <cstring>
+#include <iostream>
 
 class String {
 private:
@@ -29,6 +31,6 @@ public:
     const char* InternalRep() const;
 };
 
-void operator << (std::ostream& out, const String& rhs);
+std::ostream& operator<< (std::ostream& out, const String& rhs);
 
 #endif //LAB5_STRING_H
