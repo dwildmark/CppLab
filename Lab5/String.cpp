@@ -24,8 +24,17 @@ String::String(const char* cstr) {
 }
 
 String& String::operator=(const String &rhs) {
-    String str = String(rhs);
-    return str;
+    if(this == &rhs) {
+        return *this;
+    }
+    delete[] mArray;
+    mSize = rhs.size();
+    mCapacity = mSize + 20;
+    mArray = new char[mCapacity];
+    for(int i = 0; i < mSize; i++) {
+        mArray[i] = rhs[i];
+    }
+    return *this;
 }
 
 char& String::operator[](int i) {
@@ -65,7 +74,7 @@ void operator<<(std::ostream &out, const String &rhs) {
 
 }
 
-const char *String::InternalRep() const {
+const char* String::InternalRep() const {
     return nullptr;
 }
 
