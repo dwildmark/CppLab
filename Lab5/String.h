@@ -29,8 +29,6 @@ public:
     void push_back(char c);
     friend bool operator == (const String& lhs, const String& rhs);
     const char* InternalRep() const;
+    friend std::ostream& operator << (std::ostream& out, const String& rhs);
 };
-
-std::ostream& operator<< (std::ostream& out, const String& rhs);
-
 #endif //LAB5_STRING_H

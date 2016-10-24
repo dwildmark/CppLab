@@ -1,22 +1,30 @@
-#include <iostream>
+#include <stdlib.h>
+
+//#define VG
+
+//#include "UnsignedTest.h"
+#include "String.h"
+
 #include <string>
 #include <iostream>
 #include <cassert>
 #include <utility>
-#include <stdlib.h>
-#include "String.h"
-
 using namespace std;
-
-int myOwnTest();
-bool tM(bool test);
 
 void TestPushBackReallocation() {
     String str("hej");
+    assert(str.size() <= str.capacity());
+
+#ifdef VG
+    //If VG we try to take 20 empty places: (size+1 < capacity)
+	while (str.size() + 20 >= str.capacity() && str.size() < 1000)
+		str.push_back('A' + rand() % 32);
+	assert(str.size() < 1000);	//If this fail it prbably the case that capacity is increased with a constant.
+#endif //VG
+
     auto internalBuf = str.InternalRep();
     auto cap = str.capacity();
     auto siz = str.size();
-    assert(siz + 1 < cap); //Meaningless to check if to little difference
     int i;
     for (i = siz + 1; i <= cap; ++i) {
         str.push_back(char(i) + 'a');
@@ -108,8 +116,14 @@ void TestForValGodkantString() {
 	assert(strC.at(1) == 'y');
 	assert(std::is_const<std::remove_reference< decltype(strC.at(1))>::type>::value); //Kolla att det blir en const resultat av indexering
 
+	// ConvertToChars
+	char* temp = strC.ConvertToChars();
+	assert(strC.size() == 3);
+	assert(std::memcmp(temp, strC.InternalRep(), strC.size()) == 0);
+	assert(temp[strC.size()] == '\0');
+	delete temp;
 
-//	reserve()
+	//	reserve()
 	auto internalBuf = str.InternalRep();
 	auto cap = str.capacity();
 	auto siz = str.size();
@@ -119,16 +133,16 @@ void TestForValGodkantString() {
 	assert(cap == str.capacity());
 	assert(siz == str.size());
 
-	str.reserve(cap+1);
+	str.reserve(cap + 1);
 	assert(internalBuf != str.InternalRep());
-	assert(cap+1 == str.capacity());
+	assert(cap + 1 == str.capacity());
 	assert(siz == str.size());
 
 	/////////////////
 	//-	operator+=(Str�ng str�ng) som tolkas som konkatenering.
 	//foo, bar, hej
 	String str1("foo"), str2("bar"), str3("hej");
-	((str="xyz")  += str1) += (str3 += str1);
+	((str = "xyz") += str1) += (str3 += str1);
 	assert(str3 == "hejfoo" && str == "xyzfoohejfoo" && str1 == "foo");
 
 	//+= som f�r plats;
@@ -144,8 +158,8 @@ void TestForValGodkantString() {
 		str.push_back('0' + i);
 	str1 = "bar";
 	str += str1;
-	for (int k=0;k<i;++k)
-		assert(str[k] == '0'+k);
+	for (int k = 0; k < i; ++k)
+		assert(str[k] == '0' + k);
 	assert(str[i] == 'b');
 	//+= Sj�lv assignment	//Borde testa med att capacity tar slut!
 	str = "foo";
@@ -164,5 +178,6 @@ int main() {
     //locale::global(locale("swedish"));
     //TestUnsigned();
     TestForGodkantString();
+    TestForValGodkantString();
     cin.get();
 }

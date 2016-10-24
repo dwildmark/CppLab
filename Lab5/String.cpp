@@ -6,7 +6,7 @@
 
 String::String(const String &rhs) {
     mSize = rhs.size();
-    mCapacity = mSize + 20;
+    mCapacity = mSize;
     mArray = new char[mCapacity];
     for(int i = 0; i < mSize; i++) {
         mArray[i] = rhs[i];
@@ -15,7 +15,7 @@ String::String(const String &rhs) {
 
 String::String(const char* cstr) {
     mSize = (int)strlen(cstr);
-    mCapacity = mSize + 20;
+    mCapacity = mSize;
     mArray = new char[mCapacity];
     for(int i = 0; i < mSize; i++) {
         mArray[i] = cstr[i];
@@ -84,19 +84,6 @@ bool operator==(const String &lhs, const String &rhs) {
     }
     return false;
 }
-
-/*bool operator==(const String &lhs, const char* rhs) {
-    if(lhs.size() == strlen(rhs)) {
-        for(int i = 0; i < lhs.size(); i++) {
-            if(lhs[i] != rhs[i]) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    return true;
-}*/
 
 String::String() {
     mArray = {};
