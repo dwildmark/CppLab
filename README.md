@@ -6,3 +6,8 @@
 [Laboration 3 - Objects and memory management](/Lab3)
 
 [Laboration 4 - Algorithms and containers](/Lab4)
+
+[Laboration 5 - String class](/Lab5)
+
+[Laboration 6 - Strategy Pattern](/Lab6)
+
