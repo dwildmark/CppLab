@@ -8,9 +8,7 @@
 
 class OperationsInterface {
 public:
-    virtual int OperationAdd(int lhs, int rhs) = 0;
-    virtual int OperationSubtract(int lhs, int rhs) = 0;
-    virtual int OperationMultiply(int lhs, int rhs) = 0;
+    virtual int Operation(int lhs, int rhs) = 0;
 };
 
 
