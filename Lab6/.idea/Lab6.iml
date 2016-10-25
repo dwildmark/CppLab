@@ -2,18 +2,22 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/Operator.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Subtract.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/OperationsInterface.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Multiply.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BubbleSort.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/StdSort.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Multiply.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/OperationsInterface.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/StdSort.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Multiply.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SortAlgInterface.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Subtract.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Add.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BubbleSort.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Operator.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Operator.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Add.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Subtract.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Subtract.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/OperationsInterface.h" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

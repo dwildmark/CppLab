@@ -9,6 +9,7 @@
 #include "OperationsInterface.h"
 
 class Subtract : public OperationsInterface{
+public:
     int Operation(int lhs, int rhs);
 };
 

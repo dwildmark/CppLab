@@ -9,6 +9,7 @@
 #include "OperationsInterface.h"
 
 class Multiply : public OperationsInterface{
+public:
     int Operation(int lhs, int rhs);
 };
 
