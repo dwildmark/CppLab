@@ -1,5 +1,5 @@
 # CppLab
-###Tasks in a C++ course
+### Tasks in a C++ course
 
 [Laboration 2 - Strings](/Lab2)
 
